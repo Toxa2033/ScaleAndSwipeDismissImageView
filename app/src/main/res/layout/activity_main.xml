@@ -5,7 +5,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         xmlns:android="http://schemas.android.com/apk/res/android">
-    <ru.test.library.ScaleImageView
+    <com.github.toxa2033.ScaleImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitCenter"
