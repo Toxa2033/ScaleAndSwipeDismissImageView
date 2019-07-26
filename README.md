@@ -4,7 +4,7 @@
 
 This android library provide zoom and swipe(fling) dismiss like facebook
 
-![](https://github.com/Toxa2033/ScaleAndSwipeDismissImageView/blob/master/ezgif-5-bf0abf6acad8.gif)
+![](https://github.com/Toxa2033/ScaleAndSwipeDismissImageView/blob/master/sample.gif?raw=true)
 
 
 ## Features
