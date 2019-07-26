@@ -32,7 +32,7 @@ There is a [sample](https://github.com/Toxa2033/ScaleAndSwipeDismissImageView/bl
 | zoom_enabled | boolean | true |
 | dismiss_enabled | boolean | true |
 
-##In code
+## In code
 
 You can:
  - Set enabled zoom and dismiss in code 
