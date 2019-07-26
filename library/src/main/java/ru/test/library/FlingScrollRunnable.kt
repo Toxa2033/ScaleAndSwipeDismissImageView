@@ -3,7 +3,6 @@ package ru.test.library
 import android.content.Context
 import android.graphics.RectF
 import android.widget.OverScroller
-import androidx.core.view.ViewCompat
 import ru.test.library.Constants.SCROLL_TO_DEFAULT_DURATION
 
 internal class FlingScrollRunnable(private val imageView: ScaleImageView,
@@ -71,7 +70,7 @@ internal class FlingScrollRunnable(private val imageView: ScaleImageView,
             mCurrentX = newX
             mCurrentY = newY
             // Post On animation
-            ViewCompat.postOnAnimation(imageView, this)
+            imageView.postOnAnimation( this)
         }
     }
 

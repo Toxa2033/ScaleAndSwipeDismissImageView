@@ -1,7 +1,6 @@
 package ru.test.library
 
 import android.view.animation.AccelerateDecelerateInterpolator
-import androidx.core.view.ViewCompat.postOnAnimation
 import ru.test.library.Constants.ZOOM_DURATION
 import kotlin.math.min
 
@@ -32,7 +31,7 @@ internal class ZoomAnimationRunnable(
         imageHelper.scaleImage(deltaScale,x,y)
 
         if (t < 1f) {
-            postOnAnimation(imageView, this)
+            imageView.postOnAnimation(this)
         }
     }
 }

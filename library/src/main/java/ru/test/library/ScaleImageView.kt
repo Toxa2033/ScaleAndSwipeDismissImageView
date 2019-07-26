@@ -13,7 +13,6 @@ import android.graphics.drawable.Drawable
 import android.graphics.drawable.Icon
 import android.net.Uri
 import android.util.Log
-import androidx.core.content.res.TypedArrayUtils
 import java.lang.Math.pow
 import kotlin.math.max
 import kotlin.math.abs
