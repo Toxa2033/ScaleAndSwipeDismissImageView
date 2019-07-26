@@ -15,12 +15,18 @@ class MainActivity : AppCompatActivity() {
         Picasso.get().load(R.drawable.panda).into(scaleImage)
 
         scaleImage.setBackgroundColor(Color.BLACK)
+        scaleImage.setZoomEnabled(true)
+        scaleImage.setDismissEnabled(true)
 
         scaleImage.setOnDismissRateChange {rate,isCanNowDismiss->
             scaleImage.alpha = 1-rate
             if(isCanNowDismiss){
                 finish()
             }
+        }
+
+        scaleImage.setOnZoomChange { currentScale, minScale, maxScale ->
+            //your code
         }
     }
 }

@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "ru.test.scaleimageandswipedissmiss"
+        applicationId "com.github.scaleimageandswipedissmiss"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
@@ -28,5 +28,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.core:core-ktx:1.0.2'
     implementation 'com.squareup.picasso:picasso:2.71828'
-    compile project(path: ':library')
+    //compile project(path: ':library')
+    implementation 'com.github.Toxa2033:ScaleAndSwipeDismissImageView:v0.6'
+
 }

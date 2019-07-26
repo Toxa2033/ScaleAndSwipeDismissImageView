@@ -3,11 +3,14 @@
 <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
         xmlns:android="http://schemas.android.com/apk/res/android">
     <com.github.toxa2033.ScaleImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitCenter"
+            app:zoom_enabled="true"
+            app:dismiss_enabled="true"
             android:id="@+id/scaleImage"/>
 </LinearLayout>
