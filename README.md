@@ -72,7 +72,7 @@ allprojects {
 
 ```app/build.gradle
 dependencies {
-    implementation 'com.github.Toxa2033:ScaleAndSwipeDismissImageView:v0.5'
+    implementation 'com.github.Toxa2033:ScaleAndSwipeDismissImageView:v0.6'
 }
 ```
 
