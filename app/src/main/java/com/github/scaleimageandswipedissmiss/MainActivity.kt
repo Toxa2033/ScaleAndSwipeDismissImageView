@@ -3,6 +3,7 @@ package com.github.scaleimageandswipedissmiss
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -19,9 +20,9 @@ class MainActivity : AppCompatActivity() {
         scaleImage.setDismissEnabled(true)
 
         scaleImage.setOnDismissRateChange {rate,isCanNowDismiss->
-            scaleImage.alpha = 1-rate
+            scaleImage.setBackgroundColor(Color.argb(Math.round(255*(1f-rate)),0,0,0))
             if(isCanNowDismiss){
-                finish()
+                Toast.makeText(this@MainActivity,"Success dismiss",Toast.LENGTH_LONG).show()
             }
         }
 
