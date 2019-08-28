@@ -4,7 +4,7 @@
 
 This android library provide zoom and swipe(fling) dismiss like facebook
 
-![](https://github.com/Toxa2033/ScaleAndSwipeDismissImageView/blob/master/sample1.gif?raw=true)
+![](https://github.com/Toxa2033/ScaleAndSwipeDismissImageView/blob/master/sample2.gif?raw=true)
 
 
 ## Features
@@ -59,7 +59,6 @@ scaleImage.setOnZoomChange { currentScale, minScale, maxScale ->
 ```
 
 
-
 ## Download
 
 ```build.gradle
@@ -72,7 +71,7 @@ allprojects {
 
 ```app/build.gradle
 dependencies {
-    implementation 'com.github.Toxa2033:ScaleAndSwipeDismissImageView:v0.6'
+    implementation 'com.github.Toxa2033:ScaleAndSwipeDismissImageView:v0.7'
 }
 ```
 
