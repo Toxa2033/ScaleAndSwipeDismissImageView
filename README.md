@@ -43,10 +43,10 @@ scaleImage.setZoomEnabled(false)
 
  - Listen dismiss rate. Dismiss rate form 0 to 1. When rate == 1 and touch was released isCanNowDismiss = true and you can close image
  ```
-scaleImage.setOnDismissRateChange { rate,isCanNowDismiss->
-            scaleImage.alpha = 1 - rate
+scaleImage.setOnDismissRateChange {rate,isCanNowDismiss->
+            scaleImage.setBackgroundColor(Color.argb(Math.round(255*(1f-rate)),0,0,0))
             if(isCanNowDismiss){
-                finish()
+                Toast.makeText(this@MainActivity,"Success dismiss",Toast.LENGTH_LONG).show()
             }
         }
 ```
