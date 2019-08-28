@@ -27,7 +27,7 @@ internal class ScaleImageHelper(private val imageView: ScaleImageView) : IScaleI
         set(value) {
             if (field != value) {
                 field = value
-                onDismissRateChange(value, false)
+                onDismissRateChange(dismissRate, false)
             }
         }
 
@@ -172,12 +172,21 @@ internal class ScaleImageHelper(private val imageView: ScaleImageView) : IScaleI
             imageViewRectF.right,
             imageViewRectF.bottom
         )
+        var isCanNowDismissWasExec = false
+
         currentFlingRunnable = FlingScrollRunnable(
             imageView,
             if (!isDragToDismiss) getMatrixBounds(suppMatrix) else displayRectF, isDragToDismiss,
-            if (!isDragToDismiss) ::checkBoundsImageAndApplyMove else ::checkBoundsImageAndApplyMoveForSwipeToDismiss
+            if (!isDragToDismiss) ::checkBoundsImageAndApplyMove else ::checkBoundsImageAndApplyMoveForSwipeToDismiss,
+            {
+                if(isDragToDismiss && dismissRate == MAX_RATE_DISMISS && !isCanNowDismissWasExec) {
+                    onDismissRateChange(dismissRate, true)
+                    isCanNowDismissWasExec = true
+                }
+            }
         ) {
             if (isDragToDismiss) toDefaultPosition()
+            isCanNowDismissWasExec = false
         }
         currentFlingRunnable?.fling(lastX, lastY, vX, vY)
         imageView.post(currentFlingRunnable)
@@ -194,9 +203,7 @@ internal class ScaleImageHelper(private val imageView: ScaleImageView) : IScaleI
         imageView.post(zoomAnimationRunnable)
     }
 
-    override fun toDefaultPosition() {
-        onDismissRateChange(dismissRate, dismissRate == MAX_RATE_DISMISS)
-
+    override fun toDefaultPosition(execDismissChange:Boolean) {
         if(dismissRate != MAX_RATE_DISMISS) {
             val scrollToDefault = ScrollToDefaultAnimationRunnable(
                 imageView,
@@ -205,6 +212,8 @@ internal class ScaleImageHelper(private val imageView: ScaleImageView) : IScaleI
             )
             scrollToDefault.startSroll(defaultRect.centerY())
             imageView.post(scrollToDefault)
+        } else{
+            if(execDismissChange) onDismissRateChange(dismissRate, true)
         }
     }
 

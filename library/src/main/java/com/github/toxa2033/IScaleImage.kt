@@ -8,7 +8,7 @@ internal interface IScaleImage {
     fun fling(lastX:Int,lastY:Int,vX:Int,vY:Int,isDragToDismiss:Boolean=false)
     fun cancelFling()
     fun getScale():Float
-    fun toDefaultPosition()
+    fun toDefaultPosition(execDismissChange:Boolean = true)
 
     fun getMaxScale():Float
     fun getMinScale():Float

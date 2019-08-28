@@ -100,4 +100,8 @@ class ScaleImageView : ImageView {
     fun setOnZoomChange(onZoomChange: (currentScale: Float, minScale: Float, maxScale: Float) -> Unit) {
         scaleImageHelper.onZoomChange = onZoomChange
     }
+
+    fun stopFlingAnimation(){
+        scaleImageHelper.cancelFling()
+    }
 }

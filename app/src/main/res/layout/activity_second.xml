@@ -6,10 +6,11 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
         xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView
-            android:layout_width="250dp"
-            android:layout_height="155dp"
-            android:layout_gravity="center"
-            android:id="@+id/ivImage"
-            android:src="@drawable/panda"/>
+    <com.github.toxa2033.ScaleImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            app:zoom_enabled="true"
+            app:dismiss_enabled="true"
+            android:id="@+id/scaleImage"/>
 </FrameLayout>

@@ -1,9 +1,19 @@
 package com.github.scaleimageandswipedissmiss
 
+import android.app.Activity
+import android.app.ActivityOptions
+import android.content.Intent
 import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.transition.Fade
+import android.view.Window
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.core.app.ActivityOptionsCompat
+import androidx.core.util.Pair
+import androidx.core.view.ViewCompat
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -13,21 +23,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Picasso.get().load(R.drawable.panda).into(scaleImage)
+        Picasso.get().load(R.drawable.panda).into(ivImage)
 
-        scaleImage.setBackgroundColor(Color.BLACK)
-        scaleImage.setZoomEnabled(true)
-        scaleImage.setDismissEnabled(true)
 
-        scaleImage.setOnDismissRateChange {rate,isCanNowDismiss->
-            scaleImage.setBackgroundColor(Color.argb(Math.round(255*(1f-rate)),0,0,0))
-            if(isCanNowDismiss){
-                Toast.makeText(this@MainActivity,"Success dismiss",Toast.LENGTH_LONG).show()
-            }
-        }
-
-        scaleImage.setOnZoomChange { currentScale, minScale, maxScale ->
-            //your code
+        ivImage.setOnClickListener {
+            startActivity(Intent(this,SecondActivity::class.java))
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
     }
 }

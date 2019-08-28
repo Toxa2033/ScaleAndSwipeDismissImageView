@@ -7,6 +7,7 @@ internal class FlingScrollRunnable(private val imageView: ScaleImageView,
                                    private val imageRectF:RectF,
                                    private val isDragToDismiss: Boolean,
                                    private val checkBoundsImageAndApplyMove:(dx:Float,dy:Float,isForScale:Boolean,isForDragToDismiss:Boolean)->Unit,
+                                   private val tickAnimation:()->Unit = {},
                                    private val endOfAnimation:()->Unit = {}):Runnable{
 
     private var mScroller: OverScroller = OverScroller(imageView.context)
@@ -67,6 +68,7 @@ internal class FlingScrollRunnable(private val imageView: ScaleImageView,
             checkBoundsImageAndApplyMove((mCurrentX - newX).toFloat(),(mCurrentY - newY).toFloat(),false,isDragToDismiss)
             mCurrentX = newX
             mCurrentY = newY
+            tickAnimation()
             // Post On animation
             imageView.postOnAnimation( this)
         }
